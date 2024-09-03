@@ -10,7 +10,7 @@ class FormPlusTextField<T> extends StatelessWidget {
   final String? initialValue;
   final FocusNode focusNode = FocusNode();
   final String name;
-  final String labelText;
+  final Widget label;
   final String hintText;
   final TextInputType keyboardType;
   final TextInputAction textInputAction;
@@ -64,7 +64,7 @@ class FormPlusTextField<T> extends StatelessWidget {
     required this.name,
     required this.hintText,
     required this.optional,
-    required this.labelText,
+    required this.label,
     this.formEdition = false,
     this.onTap,
     this.onReset,
@@ -170,10 +170,7 @@ class FormPlusTextField<T> extends StatelessWidget {
           decoration: d.copyFrom(
             contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
             suffixIcon: suffixIcon,
-            label: /*LB*/ labelRichText(
-              required: !optional,
-              text: labelText,
-            ),
+            label: label,
             hintText: hintText,
           ),
           enabled: enabled,

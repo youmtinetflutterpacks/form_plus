@@ -9,7 +9,7 @@ class FormPlusCheckbox<T> extends StatelessWidget {
   final FocusNode focusNode = FocusNode();
   //   //
   final String name;
-  final String labelText;
+  final Widget label;
   final String hintText;
   final Widget? suffixIcon;
   final void Function()? onTap;
@@ -34,7 +34,7 @@ class FormPlusCheckbox<T> extends StatelessWidget {
   FormPlusCheckbox({
     Key? key,
     required this.name,
-    required this.labelText,
+    required this.label,
     required this.hintText,
     required this.optional,
     this.formEdition = false,
@@ -62,7 +62,7 @@ class FormPlusCheckbox<T> extends StatelessWidget {
         return FormBuilderCheckbox(
           name: name,
           focusNode: focusNode,
-          title: Text(labelText),
+          title: label,
           initialValue: initialValue,
           tristate: optional,
           validator: FormBuilderValidators.compose(
@@ -80,10 +80,7 @@ class FormPlusCheckbox<T> extends StatelessWidget {
           decoration: d.copyFrom(
             contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
             suffixIcon: suffixIcon,
-            label: /*LB*/ labelRichText(
-              required: !optional,
-              text: labelText,
-            ),
+            label: label,
             hintText: hintText,
           ),
           enabled: enabled,

@@ -5,14 +5,14 @@ import 'package:flutter/material.dart' show AutovalidateMode, BuildContext, Colo
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart' show FormBuilderValidators;
 import 'package:get/get.dart';
-import 'package:form_plus/lib.dart' show InputDexoration, ReusableBorderRadius, labelRichText;
+import 'package:form_plus/lib.dart' show InputDexoration, ReusableBorderRadius;
 
 class FormPlusGeneralField<T> extends StatelessWidget {
   final T? initialValue;
 
   //   //
   final String name;
-  final String labelText;
+  final Widget label;
   final String hintText;
   final TextInputAction textInputAction;
   final FormFieldValidator<T>? validator;
@@ -42,7 +42,7 @@ class FormPlusGeneralField<T> extends StatelessWidget {
   FormPlusGeneralField({
     Key? key,
     required this.name,
-    required this.labelText,
+    required this.label,
     required this.hintText,
     required this.optional,
     this.formEdition = false,
@@ -103,10 +103,7 @@ class FormPlusGeneralField<T> extends StatelessWidget {
           ],
         ),
         decoration: inputDecoration.copyFrom(
-          label: /*LB*/ labelRichText(
-            required: !optional,
-            text: labelText,
-          ),
+          label: label,
           hintText: hintText,
           //
         ),

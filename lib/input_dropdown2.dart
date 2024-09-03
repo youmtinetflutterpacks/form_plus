@@ -6,7 +6,7 @@ import 'package:form_plus/lib.dart';
 class FormPlusSearchableDropdown<T, V> extends StatelessWidget {
   final FocusNode focusNode = FocusNode();
   final String hintText;
-  final String labelText;
+  final Widget label;
   final List<T> items;
   final String name;
   final bool enabled;
@@ -29,7 +29,7 @@ class FormPlusSearchableDropdown<T, V> extends StatelessWidget {
     required this.name,
     required this.items,
     required this.hintText,
-    required this.labelText,
+    required this.label,
     required this.itemAsString,
     required this.dropdownBuilder,
     this.onTap,
@@ -64,11 +64,7 @@ class FormPlusSearchableDropdown<T, V> extends StatelessWidget {
           compareFn: compareFn,
           decoration: d.copyFrom(
             suffixIcon: suffixIcon,
-            label: /*LB*/ labelRichText(
-              required: !optional,
-              text: labelText,
-              textStyle: TextStyle(fontSize: 20),
-            ),
+            label: label,
             hintText: hintText,
           ),
           validator: FormBuilderValidators.compose<T>(

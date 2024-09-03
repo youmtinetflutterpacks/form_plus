@@ -11,7 +11,7 @@ class FormPlusNumericField<T> extends StatelessWidget {
   final FocusNode focusNode = FocusNode();
   //   //
   final String name;
-  final String labelText;
+  final Widget label;
   final String hintText;
   final TextInputAction textInputAction;
   final FormFieldValidator<num>? validator;
@@ -55,7 +55,7 @@ class FormPlusNumericField<T> extends StatelessWidget {
     required this.name,
     required this.hintText,
     required this.optional,
-    required this.labelText,
+    required this.label,
     this.formEdition = false,
     FormFieldValidator<num>? addValidator,
     this.initialValue,
@@ -124,7 +124,7 @@ class FormPlusNumericField<T> extends StatelessWidget {
       textInputAction: textInputAction,
 
       optional: optional,
-      labelText: labelText,
+      label: label,
       hintText: hintText,
       formEdition: formEdition,
       password: false,

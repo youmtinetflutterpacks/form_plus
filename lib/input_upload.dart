@@ -9,6 +9,8 @@ class EPWFileUploads extends StatelessWidget {
 
   final String name;
 
+  final Widget label;
+  final String hintText;
   final bool allowMultiple;
   EPWFileUploads({
     super.key,
@@ -16,6 +18,8 @@ class EPWFileUploads extends StatelessWidget {
     this.optional = false,
     this.formEdition = false,
     this.initialValue,
+    required this.hintText,
+    required this.label,
     this.allowMultiple = false,
   });
   final List<PlatformFile>? initialValue;
@@ -45,11 +49,8 @@ class EPWFileUploads extends StatelessWidget {
               ],
             ),
             decoration: d.copyFrom(
-              label: /*LB*/ labelRichText(
-                required: !optional,
-                text: 'Fichiers',
-              ),
-              hintText: 'Entrer fichiers',
+              label: label,
+              hintText: hintText,
             ),
           );
         });

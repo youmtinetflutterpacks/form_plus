@@ -10,7 +10,7 @@ class FormPlusDateTimeField extends StatelessWidget {
   final FocusNode focusNode = FocusNode();
   //   //
   final String name;
-  final String labelText;
+  final Widget label;
   final String hintText;
   final TextInputAction textInputAction;
   final String? Function(DateTime?)? validator;
@@ -53,14 +53,17 @@ class FormPlusDateTimeField extends StatelessWidget {
   };
   static final DateTime? Function(DateTime? v) _datetimeTransformer = (DateTime? v) => v;
 
+  final String? labelText;
+
   FormPlusDateTimeField({
     Key? key,
     this.inputType = InputType.both,
     required this.name,
-    required this.labelText,
+    required this.label,
     required this.hintText,
     required this.optional,
     this.formEdition = false,
+    this.labelText,
     this.firstDate,
     this.selectableDayPredicate,
     this.restorationId,
@@ -150,11 +153,7 @@ class FormPlusDateTimeField extends StatelessWidget {
             //
 
             suffixIcon: suffixIcon,
-            label: /*LB*/ labelRichText(
-              required: !optional,
-              text: labelText,
-              textStyle: TextStyle(fontSize: 20),
-            ),
+            label: label,
             hintText: hintText,
           ),
           //   mouseCursor: MouseCursor,
