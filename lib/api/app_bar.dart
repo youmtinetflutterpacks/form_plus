@@ -8,14 +8,19 @@ class AppBarBuilderUI extends StatefulWidget {
 
   final Widget Function(BuildContext context, double opacity, double offset) builder;
   final Widget Function(BuildContext context, double opacity, double offset) appBarContent;
-
+  final Color Function(BuildContext context, double opacity) appBarBackgroundBuilder;
+  final BoxShadow Function(BuildContext context, double opacity) boxShadowBuilder;
   AppBarBuilderUI({
     Key? key,
     required this.scrollController,
     required this.builder,
     required this.appBarContent,
+    Color Function(BuildContext context, double opacity)? appBarBackgroundBuilder,
+    BoxShadow Function(BuildContext context, double opacity)? boxShadowBuilder,
     this.reversed = false,
-  }) : super(key: key);
+  })  : appBarBackgroundBuilder = appBarBackgroundBuilder ?? _defaultAppBarBackgroundBuilder,
+        boxShadowBuilder = boxShadowBuilder ?? _defaultBoxShadowBuilder,
+        super(key: key);
   @override
   State<AppBarBuilderUI> createState() => _AppBarBuilderUIState();
 }
@@ -62,17 +67,13 @@ class _AppBarBuilderUIState extends State<AppBarBuilderUI> {
         ),
         Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.background.withOpacity(_topBarOpacity),
+            color: widget.appBarBackgroundBuilder(context, _topBarOpacity),
             borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(8.0),
               bottomLeft: Radius.circular(8.0),
             ),
             boxShadow: <BoxShadow>[
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5 * _topBarOpacity),
-                offset: Offset(1.1, 1.1),
-                blurRadius: 10.0,
-              ),
+              widget.boxShadowBuilder(context, 0.5 * _topBarOpacity),
             ],
           ),
           child: Padding(
@@ -86,4 +87,22 @@ class _AppBarBuilderUIState extends State<AppBarBuilderUI> {
       ],
     );
   }
+}
+
+Color _defaultAppBarBackgroundBuilder(
+  BuildContext context,
+  double opacity,
+) {
+  return Theme.of(context).colorScheme.background.withOpacity(opacity);
+}
+
+BoxShadow _defaultBoxShadowBuilder(
+  BuildContext context,
+  double opacity,
+) {
+  return BoxShadow(
+    color: Colors.grey.withOpacity(opacity),
+    offset: Offset(1.1, 1.1),
+    blurRadius: 10.0,
+  );
 }
