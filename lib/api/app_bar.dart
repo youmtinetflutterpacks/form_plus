@@ -69,7 +69,7 @@ class _AppBarBuilderUIState extends State<AppBarBuilderUI> {
             ),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                color: Colors.grey,
+                color: Colors.grey.withOpacity(0.5 * _topBarOpacity),
                 offset: Offset(1.1, 1.1),
                 blurRadius: 10.0,
               ),
