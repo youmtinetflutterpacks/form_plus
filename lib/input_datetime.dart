@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:form_plus/lib.dart';
+import 'package:form_plus/form_plus.dart';
 import 'package:get/get.dart';
 
 class FormPlusDateTimeField extends StatelessWidget {
@@ -10,7 +10,7 @@ class FormPlusDateTimeField extends StatelessWidget {
   final FocusNode focusNode = FocusNode();
   //   //
   final String name;
-  final Widget label;
+  final String label;
   final String hintText;
   final TextInputAction textInputAction;
   final String? Function(DateTime?)? validator;
@@ -153,7 +153,7 @@ class FormPlusDateTimeField extends StatelessWidget {
             //
 
             suffixIcon: suffixIcon,
-            label: label,
+            label: FormPlusLabel(text: label, required: !optional),
             hintText: hintText,
           ),
           //   mouseCursor: MouseCursor,

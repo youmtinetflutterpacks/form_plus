@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_builder_phone_field/form_builder_phone_field.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:form_plus/lib.dart';
+import 'package:form_plus/form_plus.dart';
 
 class FormPlusPhoneField<T> extends StatelessWidget {
   final String? initialValue;
   final FocusNode focusNode = FocusNode();
   final String name;
-  final Widget label;
+  final String label;
   final String hintText;
   final TextInputAction textInputAction;
   final String? Function(String?) addValidator;
@@ -139,7 +139,7 @@ class FormPlusPhoneField<T> extends StatelessWidget {
           decoration: d.copyFrom(
             contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
             suffixIcon: suffixIcon,
-            label: label,
+            label: FormPlusLabel(text: label, required: !optional),
             hintText: hintText,
           ),
           enabled: enabled,

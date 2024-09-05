@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart' show DragStartBehavior, PointerDownEvent;
 import 'package:flutter/material.dart' show AutovalidateMode, BuildContext, EdgeInsets, FocusNode, FormFieldValidator, Key, StatelessWidget, TextInputAction, TextInputType, Widget;
 import 'package:flutter/services.dart';
 import 'package:form_builder_validators/form_builder_validators.dart' show FormBuilderValidators;
-import 'package:form_plus/lib.dart' show FormPlusTextField;
+import 'package:form_plus/form_plus.dart' show FormPlusTextField;
 
 class FormPlusNumericField<T> extends StatelessWidget {
   final String? initialValue;
@@ -11,7 +11,7 @@ class FormPlusNumericField<T> extends StatelessWidget {
   final FocusNode focusNode = FocusNode();
   //   //
   final String name;
-  final Widget label;
+  final String label;
   final String hintText;
   final TextInputAction textInputAction;
   final FormFieldValidator<num>? validator;

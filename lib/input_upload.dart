@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_builder_file_picker/form_builder_file_picker.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:form_plus/lib.dart';
+import 'package:form_plus/form_plus.dart';
 
 class EPWFileUploads extends StatelessWidget {
   final bool optional;
@@ -9,7 +9,7 @@ class EPWFileUploads extends StatelessWidget {
 
   final String name;
 
-  final Widget label;
+  final String label;
   final String hintText;
   final bool allowMultiple;
   EPWFileUploads({
@@ -49,7 +49,7 @@ class EPWFileUploads extends StatelessWidget {
               ],
             ),
             decoration: d.copyFrom(
-              label: label,
+              label: FormPlusLabel(text: label, required: !optional),
               hintText: hintText,
             ),
           );

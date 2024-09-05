@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:form_plus/lib.dart';
+import 'package:form_plus/form_plus.dart';
 
 class FormPlusCheckbox<T> extends StatelessWidget {
   final bool? initialValue;
@@ -9,7 +9,7 @@ class FormPlusCheckbox<T> extends StatelessWidget {
   final FocusNode focusNode = FocusNode();
   //   //
   final String name;
-  final Widget label;
+  final String label;
   final String hintText;
   final Widget? suffixIcon;
   final void Function()? onTap;
@@ -62,7 +62,7 @@ class FormPlusCheckbox<T> extends StatelessWidget {
         return FormBuilderCheckbox(
           name: name,
           focusNode: focusNode,
-          title: label,
+          title: FormPlusLabel(text: label, required: !optional),
           initialValue: initialValue,
           tristate: optional,
           validator: FormBuilderValidators.compose(
@@ -80,7 +80,7 @@ class FormPlusCheckbox<T> extends StatelessWidget {
           decoration: d.copyFrom(
             contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
             suffixIcon: suffixIcon,
-            label: label,
+            label: FormPlusLabel(text: label, required: !optional),
             hintText: hintText,
           ),
           enabled: enabled,
