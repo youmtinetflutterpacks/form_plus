@@ -59,12 +59,7 @@ class _AppBarBuilderUIState extends State<AppBarBuilderUI> {
     return Stack(
       fit: StackFit.loose,
       children: [
-        Padding(
-          padding: EdgeInsets.only(
-            top: AppBar().preferredSize.height,
-          ),
-          child: widget.builder(context, _topBarOpacity, _scrollOffset),
-        ),
+        widget.builder(context, _topBarOpacity, _scrollOffset),
         Container(
           decoration: BoxDecoration(
             color: widget.appBarBackgroundBuilder(context, _topBarOpacity),
