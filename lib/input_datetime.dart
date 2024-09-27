@@ -106,7 +106,7 @@ class FormPlusDateTimeField extends StatelessWidget {
           validator: FormBuilderValidators.compose(
             [
               if (!optional) FormBuilderValidators.required(),
-              if (validator != null) (val) => validator?.call(valueTransformer.call(val)),
+              if (validator != null) (val) => validator?.call((val)),
             ],
           ),
           focusNode: focusNode,
@@ -133,9 +133,9 @@ class FormPlusDateTimeField extends StatelessWidget {
           helpText: hintText,
           onEditingComplete: onEditingComplete,
           onReset: onReset,
-          onChanged: (val) => onSubmitted?.call(valueTransformer.call(val)),
-          onSaved: (value) => onChanged?.call(valueTransformer.call(value)),
-          onFieldSubmitted: (value) => onSubmitted?.call(valueTransformer.call(value)),
+          onChanged: (val) => onSubmitted?.call(val),
+          onSaved: (value) => onChanged?.call(value),
+          onFieldSubmitted: (value) => onSubmitted?.call(value),
           enabled: enabled,
           autovalidateMode: autovalidateMode ?? AutovalidateMode.disabled,
           textCapitalization: textCapitalization,

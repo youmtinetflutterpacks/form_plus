@@ -74,7 +74,7 @@ class FormPlusGeneralField<T> extends StatelessWidget {
       optional: optional,
       readOnly: (formEdition != null && !codeMatch) || readOnly,
       onEditingComplete: onEditingComplete,
-      onSubmitted: (val) => onSubmitted?.call(valueTransformer(val)),
+      onSubmitted: (val) => onSubmitted?.call(value Transformer(val)),
       labelText: labelText,
       hintText: hintText,
       scrollPadding: scrollPadding,
