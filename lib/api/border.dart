@@ -24,24 +24,31 @@ class ReusableBorderRadius extends StatelessWidget {
       ),
       gapPadding: 10,
     );
+    var disabledBorder = OutlineInputBorder(
+      borderRadius: borderRadius,
+      borderSide: BorderSide(
+        color: Colors.transparent,
+        width: 0,
+        strokeAlign: 14,
+        style: BorderStyle.solid,
+      ),
+      gapPadding: 10,
+    );
     return builder(
       context,
       borderRadius,
       InputDecoration(
         filled: true,
-        disabledBorder: InputBorder.none,
         border: border,
+        alignLabelWithHint: true,
+        floatingLabelAlignment: FloatingLabelAlignment.center,
+        disabledBorder: disabledBorder,
         enabledBorder: border,
         focusedBorder: border,
         errorBorder: border,
-        labelStyle: TextStyle(
-          color: Theme.of(context).colorScheme.background,
-        ),
+        labelStyle: TextStyle(color: Theme.of(context).colorScheme.background),
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        contentPadding: EdgeInsets.symmetric(
-          vertical: 16,
-          horizontal: 32,
-        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
       ),
     );
   }

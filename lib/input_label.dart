@@ -28,10 +28,10 @@ class FormPlusLabel extends StatelessWidget {
             ),
         ],
       ),
+      textAlign: TextAlign.center,
       textScaleFactor: 1.0,
       maxLines: null,
-      strutStyle: StrutStyle(fontWeight: FontWeight.w400),
-      overflow: TextOverflow.fade,
+      strutStyle: StrutStyle(fontWeight: FontWeight.bold),
       // textAlign: TextAlign.start,
     );
   }

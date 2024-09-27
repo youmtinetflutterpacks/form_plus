@@ -151,7 +151,6 @@ class FormPlusDateTimeField extends StatelessWidget {
           decoration: d.copyFrom(
             contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
             //
-
             suffixIcon: suffixIcon,
             label: FormPlusLabel(text: label, required: !optional),
             hintText: hintText,
