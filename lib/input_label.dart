@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+int _maxCharacters = 20;
+
 class FormPlusLabel extends StatelessWidget {
   const FormPlusLabel({
     super.key,
@@ -13,8 +15,8 @@ class FormPlusLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: text,
-        style: Get.theme.primaryTextTheme.labelLarge,
+        text: text.length > _maxCharacters ? '${text.substring(0, _maxCharacters)}...' : text,
+        style: Get.theme.primaryTextTheme.labelLarge?.copyWith(),
         children: [
           if (required)
             TextSpan(
@@ -28,6 +30,8 @@ class FormPlusLabel extends StatelessWidget {
             ),
         ],
       ),
+      overflow: TextOverflow.ellipsis,
+
       textAlign: TextAlign.center,
       textScaleFactor: 1.0,
       maxLines: null,
