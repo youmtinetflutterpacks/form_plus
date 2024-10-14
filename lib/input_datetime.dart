@@ -58,7 +58,7 @@ class FormPlusDateTimeField extends StatelessWidget {
 
   FormPlusDateTimeField({
     Key? key,
-    this.inputType = InputType.both,
+    this.inputType = InputType.date,
     required this.name,
     required this.label,
     required this.hintText,
