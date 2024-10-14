@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -151,7 +152,7 @@ class FormPlusDateTimeField extends StatelessWidget {
           decoration: d.copyFrom(
             contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
             //
-            suffixIcon: suffixIcon,
+            suffixIcon: suffixIcon ?? _defaultSuffix(),
             label: FormPlusLabel(text: label, required: !optional),
             hintText: hintText,
           ),
@@ -159,5 +160,24 @@ class FormPlusDateTimeField extends StatelessWidget {
         );
       },
     );
+  }
+
+  Widget? _defaultSuffix() {
+    switch (inputType) {
+      case InputType.date:
+        return Icon(Icons.calendar_today_sharp);
+      case InputType.time:
+        return Icon(Icons.timer);
+      case InputType.both:
+        return Row(
+          children: [
+            Icon(CupertinoIcons.clock),
+            SizedBox(width: 3),
+            Icon(CupertinoIcons.calendar),
+          ],
+        );
+      default:
+        return null;
+    }
   }
 }

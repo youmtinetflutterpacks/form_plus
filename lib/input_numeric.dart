@@ -1,6 +1,6 @@
 import 'dart:ui' show BoxHeightStyle, BoxWidthStyle;
 import 'package:flutter/gestures.dart' show DragStartBehavior, PointerDownEvent;
-import 'package:flutter/material.dart' show AutovalidateMode, BuildContext, EdgeInsets, FocusNode, FormFieldValidator, Key, StatelessWidget, TextInputAction, TextInputType, Widget;
+import 'package:flutter/material.dart' show AutovalidateMode, BuildContext, EdgeInsets, FocusNode, FormFieldValidator, Icon, Icons, Key, StatelessWidget, TextInputAction, TextInputType, Widget;
 import 'package:flutter/services.dart';
 import 'package:form_builder_validators/form_builder_validators.dart' show FormBuilderValidators;
 import 'package:form_plus/form_plus.dart' show FormPlusTextField;
@@ -122,7 +122,7 @@ class FormPlusNumericField<T> extends StatelessWidget {
         FilteringTextInputFormatter.digitsOnly,
       ],
       textInputAction: textInputAction,
-
+      suffixIcon: Icon(Icons.numbers),
       optional: optional,
       label: label,
       hintText: hintText,
